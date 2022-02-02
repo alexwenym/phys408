@@ -6,12 +6,12 @@
 %% Connect to the scope
 
 % Create a VISA-USB object.
-interfaceObj = instrfind('Type', 'visa-usb', 'RsrcName', 'USB0::0x0699::0x0363::C107514::0::INSTR', 'Tag', '');
+interfaceObj = instrfind('Type', 'visa-usb', 'RsrcName', 'USB0::0x0699::0x0363::C107516::0::INSTR', 'Tag', '');
 
 % Create the VISA-USB object if it does not exist
 % otherwise use the object that was found.
 if isempty(interfaceObj)
-    interfaceObj = visa('TEK', 'USB0::0x0699::0x0363::C107514::0::INSTR');
+    interfaceObj = visa('TEK', 'USB0::0x0699::0x0363::C107516::0::INSTR');
 else
     fclose(interfaceObj);
     interfaceObj = interfaceObj(1);
@@ -33,7 +33,7 @@ set(deviceObj.Acquisition(1), 'Timebase', timeBase);
 
 %% Download and plot data from the scope
 
-tekChannel=1;  % channel number for the readout
+tekChannel=2;  % channel number for the readout
 
 % Execute device object function(s).
 groupObj = get(deviceObj, 'Waveform');
